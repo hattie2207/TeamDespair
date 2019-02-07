@@ -2,7 +2,7 @@
 
 // Post a user
 var url = "http://localhost:9966/petclinic/api/users";
-
+postHttprequest{
 var data = 
 {
   "enabled": true,
@@ -30,3 +30,4 @@ xhr.onload = function () {
 	}
 }
 xhr.send(json);
+}

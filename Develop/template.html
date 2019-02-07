@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body>
+        <div>
+            <form id ="user_rest_controller_post">
+                <input id="enabled" placeholder="enabled"><br>
+                <input id="username" placeholder="username"><br>
+                <input type="password" id="password" placeholder="password"><br>
+                <input id="id" placeholder="id"><br>
+                <input id="name" placeholder="name"><br>
+                <button id="post">Post</button>
+        </form>
+        </div>
+        
+        
+    </body>
+    <script>
+        'use strict';
+        document.getElementById("post").addEventListener("click", post1);
+        function post1(){
+            let object = {};
+            let roles = {};
+            let textEnabled = document.getElementById("enabled").value;
+            let textUsername = document.getElementById("username").value;
+            let textPassword = document.getElementById("password").value;
+            let textId = document.getElementById("id").value;
+            let textName = document.getElementById("name").value;
+
+            object["enabled"]=textEnabled;
+            object["username"]=textUsername;
+            object["password"]=textPassword;
+            roles["id"]=textId;
+            roles["name"]=textName;
+            object["roles"] = roles;
+
+        }
+    </script>
+</head>
+</html>

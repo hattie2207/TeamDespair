@@ -2,19 +2,7 @@
 
 // Post a user
 var url = "http://localhost:9966/petclinic/api/users";
-postHttprequest{
-var data = 
-{
-  "enabled": true,
-  "password": "password",
-  "roles": [
-    {
-      "id": 7,
-      "name": "fluffy"
-    }
-  ],
-  "username": "harry"
-};
+function postHttprequest(data){
 
 var json = JSON.stringify(data);
 

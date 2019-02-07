@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+</head>
     <body>
         <div>
             <form id ="user_rest_controller_post">
@@ -10,14 +11,61 @@
                 <input id="id" placeholder="id"><br>
                 <input id="name" placeholder="name"><br>
                 <button id="post">Post</button>
-        </form>
+            </form>
+
         </div>
+        <form id = "http://localhost:9966/petclinic/api/owners">
+            <input id="address"><br>
+            <input id="city"><br>
+            <input id="firstName"><br>
+            <input id="lastName"><br>
+            <input id="pets"><br>
+            <input id="telephone"><br>
+            <div>
+                pets
+                <input id="birthDate" ><br>
+                <input id="name"><br>
+                <input id="owner"><br>
+                <input id="typeid"><br>
+                <input id="typename"><br>
+                <input id="visitsdate"><br>
+                <input id="visitsdescription"><br>
+                <input id="visitsid"><br>
+                <input id="visitspet"><br>
+                <input id="telephone"><br>
+            </div>
+
+        </form>
         
         
     </body>
     <script>
         'use strict';
         document.getElementById("post").addEventListener("click", post1);
+
+        let obj = {};
+
+        var url = "http://localhost:9966/petclinic/api/owners";
+
+        function postHttprequest(data){
+
+        var json = JSON.stringify(data);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+        xhr.onload = function () {
+            var users = JSON.parse(xhr.responseText);
+            if (xhr.readyState == 4 && xhr.status == "201") {
+                console.table(users);
+            } else {
+                console.error(users);
+            }
+        }
+        xhr.send(json);
+}
+        
+
         function post1(){
             let object = {};
             let roles = {};
@@ -26,7 +74,7 @@
             let textPassword = document.getElementById("password").value;
             let textId = document.getElementById("id").value;
             let textName = document.getElementById("name").value;
-
+            
             object["enabled"]=textEnabled;
             object["username"]=textUsername;
             object["password"]=textPassword;
@@ -34,7 +82,11 @@
             roles["name"]=textName;
             object["roles"] = roles;
 
+            obj = object;
+            console.log(object);
+            postHttprequest(object);
         }
+        
     </script>
-</head>
+
 </html>

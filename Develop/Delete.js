@@ -1,7 +1,8 @@
+const url = "http://localhost:9966/petclinic/api/";
 
-function deleteHttpRequest()
+function deleteHttpRequest(id, attr)
 {
-    let url = "http://localhost:9966/petclinic/api/owners/6";
+    let deleteUrl = url + attr + "/" + id;
     let xhttp = new XMLHttpRequest();
 
     xhttp.open("DELETE", url, true);
@@ -15,6 +16,11 @@ function deleteHttpRequest()
         }
     }
     xhttp.send(null);
+}
+
+function parse()
+{
+    deleteHttpRequest(id, attr);
 }
 
 deleteHttpRequest();

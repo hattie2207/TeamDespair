@@ -11,6 +11,11 @@ function getData(attribute, onload) {
     request.onload = () => onload(request.response);
 }
 
+function confirmChoice() {
+    let attr = document.getElementById("selectedKey");
+    populatePopup(attr.value);
+}
+
 function populatePopup(attribute) {
     function onDataLoaded(result) {
         deletePopup();
@@ -45,11 +50,6 @@ function elementCreate(tagName, id, value, className) {
     element.value = value;
     element.textContent = value;
     document.getElementById("selectedValue").appendChild(element);
-}
-
-function confirmChoice() {
-    let attr = document.getElementById("selectedKey");
-    populatePopup(attr.value);
 }
 
 function viewData() {
